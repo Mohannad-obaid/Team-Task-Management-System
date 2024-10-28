@@ -1,0 +1,23 @@
+
+services: 
+
+  db:
+    image: postgres:13
+    container_name: ttms-postgres-db
+    restart: always
+    env_file:
+      - .docker.env  
+    ports:
+      - '5432:5432'
+    volumes:
+      - nestjs_ttms_postgres_db:/data/postgres
+
+  adminer:
+    image: adminer
+    container_name: nestjs-db-connection-adminer
+    restart: always
+    ports:
+      - '8080:8080'
+
+volumes:
+  nestjs_ttms_postgres_db:
