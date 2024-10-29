@@ -12,7 +12,7 @@ export class Team {
   @PrimaryGeneratedColumn()
   team_id: number;
 
-  @Column({ nullable: false })
+  @Column({ nullable: false, unique: true })
   team_name: string;
 
   @ManyToOne(() => User, (user) => user.id, { nullable: true })
